@@ -95,3 +95,19 @@ class CitaService:
 
         conn.close()
         return citas
+    
+    @staticmethod
+    def obtener_citas_por_paciente(paciente_id):
+        conn = CitaService.get_connection()
+        cursor = conn.cursor()
+
+        cursor.execute("""
+            SELECT * FROM citas
+            WHERE paciente_id = %s
+            ORDER BY fecha_cita
+        """, (paciente_id,))
+
+        citas = cursor.fetchall()
+
+        conn.close()
+        return citas

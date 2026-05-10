@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Sistema de Gestión Hospitalaria
 Descripción
 
@@ -59,3 +60,7 @@ Notas finales
 El sistema funciona desde consola
 Usa SQLAlchemy como ORM
 Implementa arquitectura por capas (models / services / database)
+=======
+# Proyecto_Hospital
+Este proyecto corresponde a una prueba técnica de desarrollo de software orientada al perfil Python / Backend.
+>>>>>>> 83e221ed8fd22fb219d7b4cd89c994b232cca4f4

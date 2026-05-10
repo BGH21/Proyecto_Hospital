@@ -67,12 +67,45 @@ def registrar_cita():
 
 
 def ver_pacientes():
-    pacientes = PacienteService.obtener_pacientes()
 
-    print("\n===== PACIENTES =====")
+    while True:
+        print("\n===== PACIENTES =====")
 
-    for paciente in pacientes:
-        print(paciente)
+        pacientes = PacienteService.obtener_pacientes()
+
+        for paciente in pacientes:
+            print(paciente)
+
+        print("\n--- OPCIONES ---")
+        print("Ingrese ID del paciente para ver sus citas")
+        print("0 para volver al menú")
+
+        opcion = input("\nOpción: ")
+
+        if opcion == "0":
+            break
+
+        if not opcion.isdigit():
+            print("ID inválido")
+            continue
+
+        paciente_id = int(opcion)
+        if not any(p[0] == paciente_id for p in pacientes):
+            print("Paciente no existe")
+            continue
+
+        citas = CitaService.obtener_citas_por_paciente(paciente_id)
+
+        print(f"\n===== CITAS DEL PACIENTE {paciente_id} =====")
+        
+
+        if not citas:
+            print("Este paciente no tiene citas")
+        else:
+            for cita in citas:
+                print(cita)
+
+        input("\nPresione ENTER para continuar...")
 
 
 def ver_doctores():
