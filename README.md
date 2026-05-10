@@ -1,66 +1,170 @@
-<<<<<<< HEAD
-Sistema de Gestión Hospitalaria
-Descripción
+# Sistema de Gestión Hospitalaria
 
-Sistema de gestión hospitalaria desarrollado en Python con Programación Orientada a Objetos (POO). Permite administrar pacientes, doctores y citas médicas mediante una interfaz de consola.
+Proyecto desarrollado en Python utilizando PostgreSQL.
 
-Requisitos previos
+El sistema permite administrar pacientes, doctores y citas médicas mediante una aplicación de consola.
 
-Antes de ejecutar el proyecto asegúrate de tener instalado:
+---
 
-Python 3.10 o superior
-pip (gestor de paquetes)
-Git (opcional)
+# Funcionalidades
 
-Instalación del proyecto
-1. Clonar el repositorio
-git clone https://github.com/tu_usuario/tu_repositorio.git
-2. Entrar al proyecto
-cd tu_repositorio
-Crear entorno virtual (recomendado)
-Windows:
+- Registrar pacientes
+- Registrar doctores
+- Registrar citas médicas
+- Visualizar pacientes registrados
+- Visualizar doctores registrados
+- Visualizar citas registradas
+- Consultar citas de un paciente específico
+- Validar conflictos de horarios en citas
+- Restricción de horario laboral
+
+---
+
+# Tecnologías utilizadas
+
+- Python 3
+- PostgreSQL
+- psycopg2
+
+---
+
+# Requisitos previos
+
+Antes de ejecutar el proyecto debes tener instalado:
+
+- Python 3.10 o superior
+- PostgreSQL
+- pip
+
+---
+
+# Instalación del proyecto
+
+## 1. Clonar el repositorio
+
+```bash
+git clone https://github.com/BGH21/Proyecto_Hospital.git
+```
+
+## 2. Entrar al proyecto
+
+```bash
+cd Proyecto_Hospital
+```
+
+---
+
+# Crear entorno virtual (Opcional)
+
+## Windows
+
+```bash
 python -m venv venv
 venv\Scripts\activate
-Mac / Linux:
+```
+
+## Linux / Mac
+
+```bash
 python3 -m venv venv
 source venv/bin/activate
-Instalación de dependencias
+```
 
-Si tienes requirements.txt:
+---
 
-pip install -r requirements.txt
+# Instalar dependencias
 
-Si no lo tienes, puedes instalar manualmente:
+```bash
+pip install psycopg2
+```
 
-pip install sqlalchemy
-Inicializar base de datos
+---
 
-Ejecuta el siguiente archivo para crear las tablas:
+# Configuración de PostgreSQL
 
+## 1. Crear la base de datos
+
+Entrar a PostgreSQL:
+
+```sql
+psql -U postgres
+```
+
+Crear la base de datos:
+
+```sql
+CREATE DATABASE hospital_db;
+```
+
+Conectarse a la base de datos:
+
+```sql
+\c hospital_db
+```
+
+---
+
+## 2. Ejecutar el archivo SQL
+
+Dentro de PostgreSQL ejecutar:
+
+```sql
+\i 'RUTA_DEL_PROYECTO/sql/database.sql'
+```
+
+Ejemplo en Windows:
+
+```sql
+\i 'C:/Users/usuario/Desktop/Proyecto_Hospital/sql/database.sql'
+```
+
+Esto creará las tablas y cargará datos iniciales.
+
+---
+
+# Configurar conexión a PostgreSQL
+
+Modificar las credenciales en:
+
+- `paciente_service.py`
+- `doctor_service.py`
+- `cita_service.py`
+
+```python
+host="localhost",
+database="hospital_db",
+user="postgres",
+password="TU_PASSWORD"
+```
+
+---
+
+# Ejecutar el proyecto
+
+```bash
 python main.py
+```
 
-(El sistema inicializa automáticamente la base de datos al ejecutarse)
+---
 
-Ejecutar el proyecto
-python main.py
+# Estructura del proyecto
 
-Funcionalidades
-Registrar pacientes
-Registrar doctores
-Agendar citas médicas
-Consultar pacientes
-Consultar doctores
-Consultar citas
+```text
+Proyecto_Hospital/
+│
+├── app/
+│   ├── models/
+│   ├── services/
+│   └── database/
+│
+├── sql/
+│   └── database.sql
+│
+├── main.py
+├── README.md
+```
 
-Autor
+---
 
-Proyecto desarrollado como parte de una prueba técnica de desarrollo backend en Python.
-
-Notas finales
-El sistema funciona desde consola
-Usa SQLAlchemy como ORM
-Implementa arquitectura por capas (models / services / database)
-=======
-# Proyecto_Hospital
-Este proyecto corresponde a una prueba técnica de desarrollo de software orientada al perfil Python / Backend.
->>>>>>> 83e221ed8fd22fb219d7b4cd89c994b232cca4f4
+# Autor
+Belen Gaytan Herrera
